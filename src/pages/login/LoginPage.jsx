@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 
-export default function LoginPage() {
+export default function LoginPage({ onLoginSuccess }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = (e) => {
     e.preventDefault();
-    alert(`Logging in with: ${email}`);
+    // Login successfully simulated
+    onLoginSuccess();
   };
 
   return (
     <div style={{ padding: '30px', width: '100%', maxWidth: '400px', margin: '0 auto', fontFamily: 'sans-serif', boxSizing: 'border-box' }}>
-      {/* Aria-live announcement for screen readers */}
       <h2 aria-live="polite" style={{ fontSize: '22px', marginBottom: '25px', textAlign: 'center', color: '#1e293b' }}>
         Sign In to Study Assistant
       </h2>
@@ -29,7 +29,6 @@ export default function LoginPage() {
             onChange={(e) => setEmail(e.target.value)}
             placeholder="student@university.com"
             required
-            aria-required="true"
             style={{ width: '100%', padding: '12px', fontSize: '16px', borderRadius: '6px', border: '1px solid #cbd5e1', backgroundColor: '#fff', color: '#000', boxSizing: 'border-box' }}
           />
         </div>
@@ -45,15 +44,13 @@ export default function LoginPage() {
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Enter your password"
             required
-            aria-required="true"
             style={{ width: '100%', padding: '12px', fontSize: '16px', borderRadius: '6px', border: '1px solid #cbd5e1', backgroundColor: '#fff', color: '#000', boxSizing: 'border-box' }}
           />
         </div>
 
         <button 
           type="submit" 
-          aria-label="Submit login form"
-          style={{ padding: '12px', fontSize: '16px', backgroundColor: '#0070f3', color: '#fff', border: 'none', borderRadius: '6px', cursor: 'pointer', fontWeight: 'bold', marginTop: '10px', transition: 'background 0.2s' }}
+          style={{ padding: '12px', fontSize: '16px', backgroundColor: '#0070f3', color: '#fff', border: 'none', borderRadius: '6px', cursor: 'pointer', fontWeight: 'bold', marginTop: '10px' }}
         >
           Sign In
         </button>

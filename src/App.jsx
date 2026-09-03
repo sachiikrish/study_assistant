@@ -3,10 +3,12 @@ import LoginPage from './pages/login/LoginPage';
 import SignupPage from './pages/login/SignupPage';
 import ThemeToggle from './pages/login/ThemeToggle';
 import StudentDashboard from './pages/dashboard/StudentDashboard';
-
+ import SettingsPage from './pages/settings/SettingsPage';
 export default function App() {
-  const [currentView, setCurrentView] = useState('login'); // login, signup, dashboard
+  const [currentView, setCurrentView] = useState('login'); // login, signup, dashboard,settings
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [fontSize, setFontSize] = useState('medium');
+  const [contrastMode, setContrastMode] = useState('normal');
 
   // Jab successfully login ho jaye
   const handleLoginSuccess = () => {
@@ -47,10 +49,30 @@ export default function App() {
         )}
 
         {/* Dynamic screen rendering flow */}
-        <div style={{ width: '100%', maxWidth: currentView === 'dashboard' ? '900px' : '450px', background: '#fff', padding: '20px', borderRadius: '8px', boxShadow: '0 4px 6px rgba(0,0,0,0.1)' }}>
+        <div style={{
+        width: '100%',
+        maxWidth: currentView === 'dashboard' ? '900px' : '450px',
+        fontSize: fontSize === 'small' ? '14px' : fontSize === 'large' ? '20px' : '16px',
+        background: contrastMode === 'high' ? '#000' : contrastMode === 'dark' ? '#0f172a' : '#fff',
+        color: contrastMode === 'high' ? '#facc15' : contrastMode === 'dark' ? '#fff' : '#1e293b',
+  /* ...keep everything else that was already here... */
+        }}>
           {currentView === 'login' && <LoginPage onLoginSuccess={handleLoginSuccess} />}
           {currentView === 'signup' && <SignupPage />}
           {currentView === 'dashboard' && <StudentDashboard onLogout={handleLogout} />}
+          {currentView === 'settings' && (
+          <SettingsPage
+          fontSize={fontSize}
+          setFontSize={setFontSize}
+          contrastMode={contrastMode}
+          setContrastMode={setContrastMode}
+          />
+          )}
+          {currentView === 'dashboard' && (
+         <button onClick={() => setCurrentView('settings')} style={{ marginTop: '12px' }}>
+          Go to Settings
+          </button>
+)}
         </div>
       </main>
     </div>

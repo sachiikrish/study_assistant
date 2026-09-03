@@ -3,45 +3,45 @@ import LoginPage from './pages/login/LoginPage';
 import SignupPage from './pages/login/SignupPage';
 import ThemeToggle from './pages/login/ThemeToggle';
 import StudentDashboard from './pages/dashboard/StudentDashboard';
+import './index.css'; // Global color settings connect karein
  import SettingsPage from './pages/settings/SettingsPage';
 export default function App() {
-  const [currentView, setCurrentView] = useState('login'); // login, signup, dashboard,settings
+  const [currentView, setCurrentView] = useState('login'); ,settings
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [fontSize, setFontSize] = useState('medium');
   const [contrastMode, setContrastMode] = useState('normal');
 
-  // Jab successfully login ho jaye
   const handleLoginSuccess = () => {
     setIsLoggedIn(true);
     setCurrentView('dashboard');
   };
 
-  // Jab user logout kare
   const handleLogout = () => {
     setIsLoggedIn(false);
     setCurrentView('login');
   };
 
   return (
-    <div style={{ minHeight: '100vh', padding: '20px', fontFamily: 'sans-serif' }}>
-      <header style={{ borderBottom: '1px solid #ccc', paddingBottom: '10px', marginBottom: '20px' }}>
+    <div style={{ minHeight: '100vh', padding: '20px', transition: 'all 0.2s' }}>
+      
+      {/* Persistent Accessibility Toolbar */}
+      <header style={{ paddingBottom: '10px', marginBottom: '20px', display: 'flex', justifyContent: 'center' }}>
         <ThemeToggle />
       </header>
 
       <main style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         
-        {/* Agar user logged in nahi hai toh normal Login/Signup toggle dikhao */}
         {!isLoggedIn && (
           <div style={{ marginBottom: '20px', display: 'flex', gap: '15px' }}>
             <button 
               onClick={() => setCurrentView('login')} 
-              style={{ padding: '8px 16px', fontWeight: currentView === 'login' ? 'bold' : 'normal', cursor: 'pointer' }}
+              style={{ padding: '10px 20px', fontWeight: currentView === 'login' ? 'bold' : 'normal', cursor: 'pointer', borderRadius: '6px', border: '1px solid #cbd5e1' }}
             >
               Login Form
             </button>
             <button 
               onClick={() => setCurrentView('signup')} 
-              style={{ padding: '8px 16px', fontWeight: currentView === 'signup' ? 'bold' : 'normal', cursor: 'pointer' }}
+              style={{ padding: '10px 20px', fontWeight: currentView === 'signup' ? 'bold' : 'normal', cursor: 'pointer', borderRadius: '6px', border: '1px solid #cbd5e1' }}
             >
               Create Account (Signup)
             </button>

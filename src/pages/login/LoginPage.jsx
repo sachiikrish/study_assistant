@@ -6,14 +6,14 @@ export default function LoginPage({ onLoginSuccess }) {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // Login successfully simulated
     onLoginSuccess();
   };
 
   return (
-    <div style={{ padding: '30px', width: '100%', maxWidth: '400px', margin: '0 auto', fontFamily: 'sans-serif', boxSizing: 'border-box' }}>
-      <h2 aria-live="polite" style={{ fontSize: '22px', marginBottom: '25px', textAlign: 'center', color: '#1e293b' }}>
-        Sign In to Study Assistant
+    <div style={{ padding: '30px', width: '100%', maxWidth: '400px', margin: '0 auto', fontFamily: 'system-ui, sans-serif', boxSizing: 'border-box' }}>
+      {/* Premium & Attractive Brand Title */}
+      <h2 aria-live="polite" style={{ fontSize: '32px', marginBottom: '30px', textAlign: 'center', fontWeight: '800', letterSpacing: '-0.8px', color: '#0f172a' }}>
+        Sign In to <span style={{ color: '#0070f3', borderBottom: '3px solid #0070f3', paddingBottom: '2px' }}>Stride</span>
       </h2>
       
       <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>

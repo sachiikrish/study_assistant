@@ -11,8 +11,12 @@ export default function ChatBox() {
   };
 
   return (
-    <div style={{ padding: '20px', maxWidth: '600px', margin: '20px auto', fontFamily: 'sans-serif', background: '#fff', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
-      <h2 style={{ fontSize: '20px', color: '#1e293b', marginBottom: '20px', textAlign: 'center' }}>✨ AI Study Tools</h2>
+    <div style={{ padding: '20px', maxWidth: '600px', margin: '20px auto', fontFamily: 'system-ui, sans-serif', background: '#fff', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
+      
+      {/* Shiny & Glow Effect Brand Header */}
+      <h2 style={{ fontSize: '24px', color: '#0f172a', marginBottom: '20px', textAlign: 'center', fontWeight: '800' }}>
+        ⚡ <span style={{ background: 'linear-gradient(to right, #0070f3, #7928ca)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Stride AI Engine</span>
+      </h2>
 
       <div style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
         <button onClick={() => setActiveTab('summary')} style={{ flex: 1, padding: '10px', cursor: 'pointer', fontWeight: 'bold', backgroundColor: activeTab === 'summary' ? '#0070f3' : '#f1f5f9', color: activeTab === 'summary' ? '#fff' : '#475569', border: 'none', borderRadius: '6px' }}>Summarizer</button>

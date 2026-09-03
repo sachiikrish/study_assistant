@@ -5,7 +5,7 @@ export default function ChatBox() {
   const [activeTab, setActiveTab] = useState('summary');
 
   const summaryData = {
-    normal: "Photosynthesis is the chemical biochemical process by which green plants convert light energy into chemical energy using carbon dioxide and water to release oxygen.",
+    normal: "Photosynthesis is the biochemical process by which green plants convert light energy into chemical energy using carbon dioxide and water to release oxygen.",
     simpler: "Photosynthesis is how plants use sunlight, water, and air to create food for themselves and release fresh oxygen for us to breathe.",
     simplest: "Plants eat sunlight and water to grow! They make clean air for us."
   };
